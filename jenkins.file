@@ -1,21 +1,27 @@
-pipeline {
-    agent any
+node {
+    // Define the stages of the pipeline
+    stage('Preparation') {
+        // Checkout the code from the repository
+        git 'https://github.com/sravan0088/Jenkins.git'
+    }
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    stage('Build') {
+        // Run the build commands (e.g., using Maven)
+        sh 'echo "hello"'
+    }
+
+    stage('Test') {
+        // Run the test commands (e.g., using Maven)
+        sh 'echo "hello"'
+    }
+
+    stage('Deploy') {
+        // Deploy the application (e.g., to a server)
+        sh 'echo "hello"'
+    }
+
+    stage('Cleanup') {
+        // Perform any necessary cleanup (e.g., delete temporary files)
+        sh 'rm -rf target/'
     }
 }
